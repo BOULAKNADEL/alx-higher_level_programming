@@ -79,8 +79,6 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    # rest of the code remains unchanged
-
     def area(self):
         """Return the area of the Rectangle."""
         return self.width * self.height
@@ -91,11 +89,16 @@ class Rectangle(Base):
             print("")
             return
 
-        [print("") for y in range(self.y)]
-        for h in range(self.height):
-            [print(" ", end="") for x in range(self.x)]
-            [print("#", end="") for w in range(self.width)]
-            print("")
+        # Print empty lines for y coordinate
+        for _ in range(self.y):
+            print()
+
+        # Print each row of the rectangle
+        for _ in range(self.height):
+            # Print empty space for x coordinate
+            print(" " * self.x, end="")
+            # Print the '#' character for each column
+            print("#" * self.width)
 
     def update(self, *args, **kwargs):
         """Update the Rectangle.
@@ -158,3 +161,13 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
+
+
+if __name__ == "__main__":
+    r1 = Rectangle(2, 3, 2, 2)
+    r1.display()
+
+    print("---")
+
+    r2 = Rectangle(3, 2, 1, 0)
+    r2.display()
