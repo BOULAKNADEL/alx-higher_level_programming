@@ -1,5 +1,4 @@
 #!/usr/bin/node
 
-console.log('C is fun');
-console.log('Python is cool');
-console.log('Javascript is amazing');
+const lines = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+lines.forEach(line => console.log(line));
